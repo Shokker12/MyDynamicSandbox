@@ -1,0 +1,111 @@
+{
+  "uiElementType": {
+    "name$": "COLUMN",
+    "ordinal$": 3
+  },
+  "innerElements": null,
+  "list": [
+    {
+      "uiElementType": {
+        "name$": "TEXT",
+        "ordinal$": 0
+      },
+      "innerElements": null,
+      "text": {
+        "flow": null,
+        "value": "Login"
+      }
+    },
+    {
+      "uiElementType": {
+        "name$": "TEXTFIELD",
+        "ordinal$": 5
+      },
+      "innerElements": null,
+      "enabled": {
+        "flow": null,
+        "value": true
+      },
+      "value": {
+        "flow": {
+          "slots_jbqomn$_0": null,
+          "nCollectors_uj653m$_0": 0,
+          "nextIndex_0": 0,
+          "_subscriptionCount_0": null,
+          "_state_0": "user",
+          "sequence_0": 0
+        },
+        "value": null
+      }
+    },
+    {
+      "uiElementType": {
+        "name$": "TEXT",
+        "ordinal$": 0
+      },
+      "innerElements": null,
+      "text": {
+        "flow": null,
+        "value": "Password"
+      }
+    },
+    {
+      "uiElementType": {
+        "name$": "TEXTFIELD",
+        "ordinal$": 5
+      },
+      "innerElements": null,
+      "enabled": {
+        "flow": null,
+        "value": true
+      },
+      "value": {
+        "flow": {
+          "slots_jbqomn$_0": null,
+          "nCollectors_uj653m$_0": 0,
+          "nextIndex_0": 0,
+          "_subscriptionCount_0": null,
+          "_state_0": "12345",
+          "sequence_0": 0
+        },
+        "value": null
+      }
+    },
+    {
+      "uiElementType": {
+        "name$": "BUTTON",
+        "ordinal$": 1
+      },
+      "innerElements": null,
+      "innerText": {
+        "uiElementType": {
+          "name$": "TEXT",
+          "ordinal$": 0
+        },
+        "innerElements": null,
+        "text": {
+          "flow": null,
+          "value": "Press Me"
+        }
+      }
+    },
+    {
+      "uiElementType": {
+        "name$": "TEXT",
+        "ordinal$": 0
+      },
+      "innerElements": null,
+      "text": {
+        "flow": {
+          "slots_jbqomn$_0": null,
+          "nCollectors_uj653m$_0": 0,
+          "nextIndex_0": 0,
+          "_subscriptionCount_0": null,
+          "_state_0": "",
+          "sequence_0": 0
+        },
+        "value": null
+      }
+    }
+  ]
+}

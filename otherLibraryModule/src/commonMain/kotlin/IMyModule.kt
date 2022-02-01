@@ -1,0 +1,3 @@
+interface IMyModule {
+    fun doSomething()
+}
