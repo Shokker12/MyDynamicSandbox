@@ -26,9 +26,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var Unit = Kotlin.kotlin.Unit;
   var equals = Kotlin.equals;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$;
-  var MutableStateFlow = $module$kotlinx_coroutines_core.kotlinx.coroutines.flow.MutableStateFlow_mh5how$;
   var Enum = Kotlin.kotlin.Enum;
   var throwISE = Kotlin.throwISE;
+  var MutableStateFlow = $module$kotlinx_coroutines_core.kotlinx.coroutines.flow.MutableStateFlow_mh5how$;
   var MutableList = Kotlin.kotlin.collections.MutableList;
   var throwCCE = Kotlin.throwCCE;
   var copyToArray = Kotlin.kotlin.collections.copyToArray;
@@ -124,9 +124,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return function () {
       var tmp$;
       consoleOut('add lazy column element');
-      var buttonVisibility = new JSValue(true);
+      var buttonVisibility = new UiActiveValue(true);
       var index = {v: closure$closureIndex.v};
-      var currentButton = new ButtonUiElement(new TextUiElement(new JSValue('#' + (tmp$ = closure$closureIndex.v, closure$closureIndex.v = tmp$ + 1 | 0, tmp$) + ' delete one')), GeneralExample$Companion$createSimpleForm$lambda$lambda(index, closure$lazyList), buttonVisibility);
+      var currentButton = new ButtonUiElement(new TextUiElement(new UiActiveValue('#' + (tmp$ = closure$closureIndex.v, closure$closureIndex.v = tmp$ + 1 | 0, tmp$) + ' delete one')), GeneralExample$Companion$createSimpleForm$lambda$lambda(index, closure$lazyList), buttonVisibility);
       closure$lazyList.value.add_11rb$(currentButton);
       closure$lazyList.value = closure$lazyList.value;
       return Unit;
@@ -134,14 +134,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
   GeneralExample$Companion.prototype.createSimpleForm = function () {
     consoleOut('stating generate UIElements...');
-    var loginJS = new JSValue('user');
-    var passJS = new JSValue('pass');
-    var responseFlow = new JSValue('hello world');
-    var boolFlow = new JSValue(false);
-    var lazyList = new JSValue(ArrayList_init());
+    var loginJS = new UiActiveValue('user');
+    var passJS = new UiActiveValue('pass');
+    var responseFlow = new UiActiveValue('hello world');
+    var boolFlow = new UiActiveValue(false);
+    var lazyList = new UiActiveValue(ArrayList_init());
     var field1 = new FieldUiElement(boolFlow, loginJS, GeneralExample$Companion$createSimpleForm$lambda(loginJS));
     var closureIndex = {v: 1};
-    return ColumnUiElement_init([new ButtonUiElement(new TextUiElement(new JSValue('RefreshActivity')), GeneralExample$Companion$createSimpleForm$lambda_0), new TextUiElement(new JSValue('Login')), field1, new TextUiElement(new JSValue('Password')), new FieldUiElement(new JSValue(true), passJS, GeneralExample$Companion$createSimpleForm$lambda_1(passJS)), new ButtonUiElement(new TextUiElement(new JSValue('Press Me')), GeneralExample$Companion$createSimpleForm$lambda_2(passJS, responseFlow, loginJS)), new ButtonUiElement(new TextUiElement(new JSValue('Change state')), GeneralExample$Companion$createSimpleForm$lambda_3(boolFlow, passJS, field1)), new ButtonUiElement(new TextUiElement(new JSValue('add element')), GeneralExample$Companion$createSimpleForm$lambda_4(closureIndex, lazyList)), new TextUiElement(responseFlow), new LazyColumnUiElement(lazyList), new TextUiElement(new JSValue('build info 02-01-2022 16-47'))]);
+    return ColumnUiElement_init([new ButtonUiElement(new TextUiElement(new UiActiveValue('RefreshActivity')), GeneralExample$Companion$createSimpleForm$lambda_0), new TextUiElement(new UiActiveValue('Login')), field1, new TextUiElement(new UiActiveValue('Password')), new FieldUiElement(new UiActiveValue(true), passJS, GeneralExample$Companion$createSimpleForm$lambda_1(passJS)), new ButtonUiElement(new TextUiElement(new UiActiveValue('Press Me')), GeneralExample$Companion$createSimpleForm$lambda_2(passJS, responseFlow, loginJS)), new ButtonUiElement(new TextUiElement(new UiActiveValue('Change state')), GeneralExample$Companion$createSimpleForm$lambda_3(boolFlow, passJS, field1)), new ButtonUiElement(new TextUiElement(new UiActiveValue('add element')), GeneralExample$Companion$createSimpleForm$lambda_4(closureIndex, lazyList)), new TextUiElement(responseFlow), new LazyColumnUiElement(lazyList), new TextUiElement(new UiActiveValue('build info 02-01-2022 22-33'))]);
   };
   GeneralExample$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: []};
   var GeneralExample$Companion_instance = null;
@@ -150,34 +150,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       new GeneralExample$Companion();
     }return GeneralExample$Companion_instance;
   }
-  function JSValue(initialValue) {
-    this.initialValue = initialValue;
-    this.observers = ArrayList_init();
-    this._value_0 = this.initialValue;
-    this.flow = MutableStateFlow(this.initialValue);
-  }
-  Object.defineProperty(JSValue.prototype, 'value', {configurable: true, get: function () {
-    return this._value_0;
-  }, set: function (_v) {
-    var tmp$;
-    tmp$ = this.observers.iterator();
-    while (tmp$.hasNext()) {
-      var element = tmp$.next();
-      element(_v);
-    }
-    this.flow.value = _v;
-    this._value_0 = _v;
-    consoleOut('set value call finished. ' + toString(this._value_0));
-  }});
-  JSValue.prototype.getCurrentValue = function () {
-    return this.value;
-  };
-  JSValue.prototype.addObserver = function (v) {
-    consoleOut('adding observer with type ' + Kotlin.getKClassFromExpression(this).simpleName);
-    this.observers.add_wxm5ur$(this.observers.size, v);
-    v(this.value);
-  };
-  JSValue.$metadata$ = {kind: Kind_CLASS, simpleName: 'JSValue', interfaces: []};
   var Align$NONE_instance;
   var Align$START_instance;
   var Align$CENTER_instance;
@@ -267,9 +239,37 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     }
   }
   Type.valueOf_61zpoe$ = Type$valueOf;
+  function UiActiveValue(initialValue) {
+    this.initialValue = initialValue;
+    this.observers = ArrayList_init();
+    this._value_0 = this.initialValue;
+    this.flow = MutableStateFlow(this.initialValue);
+  }
+  Object.defineProperty(UiActiveValue.prototype, 'value', {configurable: true, get: function () {
+    return this._value_0;
+  }, set: function (_v) {
+    var tmp$;
+    tmp$ = this.observers.iterator();
+    while (tmp$.hasNext()) {
+      var element = tmp$.next();
+      element(_v);
+    }
+    this.flow.value = _v;
+    this._value_0 = _v;
+    consoleOut('set value call finished. ' + toString(this._value_0));
+  }});
+  UiActiveValue.prototype.getCurrentValue = function () {
+    return this.value;
+  };
+  UiActiveValue.prototype.addObserver = function (v) {
+    consoleOut('adding observer with type ' + Kotlin.getKClassFromExpression(this).simpleName);
+    this.observers.add_wxm5ur$(this.observers.size, v);
+    v(this.value);
+  };
+  UiActiveValue.$metadata$ = {kind: Kind_CLASS, simpleName: 'UiActiveValue', interfaces: []};
   function ButtonUiElement(innerText, onClick, visibility) {
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     UIElement.call(this, Type$BUTTON_getInstance(), visibility);
     this.innerText = innerText;
     this.onClick = onClick;
@@ -277,7 +277,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   ButtonUiElement.$metadata$ = {kind: Kind_CLASS, simpleName: 'ButtonUiElement', interfaces: [UIElement]};
   function ColumnUiElement(visibility) {
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     UIElement.call(this, Type$COLUMN_getInstance(), visibility);
     this.list = ArrayList_init();
   }
@@ -298,11 +298,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
   function FieldUiElement(enabled, value, onChange, visibility) {
     if (enabled === void 0)
-      enabled = new JSValue(true);
+      enabled = new UiActiveValue(true);
     if (onChange === void 0)
       onChange = FieldUiElement_init$lambda;
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     UIElement.call(this, Type$TEXTFIELD_getInstance(), visibility);
     this.enabled = enabled;
     this.value = value;
@@ -314,23 +314,23 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   FieldUiElement.$metadata$ = {kind: Kind_CLASS, simpleName: 'FieldUiElement', interfaces: [UIElement]};
   function LazyColumnUiElement(lazyList, visibility) {
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     UIElement.call(this, Type$LAZYCOLUMN_getInstance(), visibility);
     this.lazyList = lazyList;
   }
   LazyColumnUiElement.$metadata$ = {kind: Kind_CLASS, simpleName: 'LazyColumnUiElement', interfaces: [UIElement]};
   function TextUiElement(text, visibility) {
     if (text === void 0)
-      text = new JSValue('');
+      text = new UiActiveValue('');
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     UIElement.call(this, Type$TEXT_getInstance(), visibility);
     this.text = text;
   }
   TextUiElement.$metadata$ = {kind: Kind_CLASS, simpleName: 'TextUiElement', interfaces: [UIElement]};
   function UIElement(uiElementType, visibility) {
     if (visibility === void 0)
-      visibility = new JSValue(true);
+      visibility = new UiActiveValue(true);
     this.uiElementType = uiElementType;
     this.visibility = visibility;
   }
@@ -347,7 +347,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   package$model.generateExample = generateExample;
   Object.defineProperty(GeneralExample, 'Companion', {get: GeneralExample$Companion_getInstance});
   package$model.GeneralExample = GeneralExample;
-  package$model.JSValue = JSValue;
   var package$type = package$model.type || (package$model.type = {});
   Object.defineProperty(Type, 'TEXT', {get: Type$TEXT_getInstance});
   Object.defineProperty(Type, 'BUTTON', {get: Type$BUTTON_getInstance});
@@ -358,6 +357,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   Object.defineProperty(Type, 'LAZYCOLUMN', {get: Type$LAZYCOLUMN_getInstance});
   Object.defineProperty(Type, 'LAZYROW', {get: Type$LAZYROW_getInstance});
   package$type.Type = Type;
+  package$model.UiActiveValue = UiActiveValue;
   var package$UIElements = package$model.UIElements || (package$model.UIElements = {});
   package$UIElements.ButtonUiElement = ButtonUiElement;
   package$UIElements.ColumnUiElement_init_uubb73$ = ColumnUiElement_init;
