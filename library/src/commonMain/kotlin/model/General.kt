@@ -15,11 +15,70 @@ fun generateExample():UIElement{
 class GeneralExample {
     companion object {
         fun createSimpleForm():UIElement{
+
+            val activeValue = UiActiveValue<String>("build time ${buildInfo}")
+            val text = TextUiElement(activeValue)
+            val text2 = TextUiElement(UiActiveValue<String>("hello world"))
+            val buttonUiElement = ButtonUiElement(TextUiElement(UiActiveValue("refresh button")),
+            onClick = {
+                goDeepLink("")
+            })
+            val buttonUiElement2 = ButtonUiElement(TextUiElement(UiActiveValue("Set greetings")),
+                onClick = {
+                    activeValue.value = "hello Pavel!"
+                })
+
+            val fieldActiveValue = UiActiveValue("init text")
+            val fieldUiElement = FieldUiElement(value = fieldActiveValue, onChange = {
+                fieldActiveValue.value = it
+                activeValue.value = it
+            })
+
+            val col = ColumnUiElement(text, text2,buttonUiElement,buttonUiElement2,fieldUiElement)
+            return col
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        fun createSimpleFormOld():UIElement{
             consoleOut("stating generate UIElements...")
 
             val loginJS = UiActiveValue<String>("user")
             val passJS = UiActiveValue<String>("pass")
-            val responseFlow = UiActiveValue<String>("hello world")
+            val responseFlow = UiActiveValue<String>("hello Igor")
             val boolFlow = UiActiveValue<Boolean>(false)
 
             val lazyList = UiActiveValue<MutableList<UIElement>>(mutableListOf())

@@ -24,7 +24,8 @@ class UIGenerator {
         val visiblity = uiElement.visibility.flow.collectAsState()
         if(!visiblity.value)
             return
-        Box(modifier = Modifier.padding(4.dp, 4.dp, 4.dp)) {
+        Box(modifier = Modifier.padding(4.dp, 4.dp, 4.dp).fillMaxWidth())
+        {
             when (uiElement.uiElementType) {
                 Type.TEXT -> {
                     val textUiElement = (uiElement as TextUiElement)

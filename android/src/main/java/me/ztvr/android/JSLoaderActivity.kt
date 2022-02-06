@@ -102,13 +102,13 @@ class JSLoaderActivity : ComponentActivity() {
             Type.TEXT -> {
                 val flowJsElement = jsUiElement.getObject("text")
                 val text = generateJSValue(flowJsElement)
-                return TextUiElement(text)
+                return TextUiElement(text,visibility)
             }
 
             Type.BUTTON -> {
                 return ButtonUiElement(
                     generateUIElementsFromJS(jsUiElement.getObject("innerText")) as TextUiElement,
-                    { jsUiElement.executeFunction("onClick", null) })
+                    { jsUiElement.executeFunction("onClick", null) },visibility)
             }
             Type.TEXTFIELD -> {
                 return FieldUiElement(

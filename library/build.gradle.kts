@@ -12,7 +12,7 @@ plugins {
 fun getCurrentTimestamp():String
 {
     val today =  Date()
-    val df =  SimpleDateFormat("MM-dd-yyyy HH-mm")
+    val df =  SimpleDateFormat("dd-MM-yyyy HH-mm")
     return df.format(today)
 }
 

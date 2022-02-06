@@ -1,0 +1,10 @@
+/android/build/
+/.gradle/
+/.idea/
+/build/
+/jvm/build/
+*.hprof
+
+/library/build/
+/myKtorServer/build/
+/otherLibraryModule/build/
