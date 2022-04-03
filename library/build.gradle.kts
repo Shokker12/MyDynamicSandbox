@@ -74,6 +74,7 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-js")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.6.0")
+                implementation("io.ktor:ktor-client-js:1.6.5")
             }
         }
         val jsTest by getting

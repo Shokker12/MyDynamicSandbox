@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.config.JvmAnalysisFlags.useIR
+
 plugins {
     id("com.android.application")
     kotlin("android")
     id("org.jetbrains.compose") version "1.0.1-rc2"
+    id("kotlin-android")
 }
 
 group = "me.ztvr"
@@ -41,6 +44,9 @@ dependencies {
 
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
 
     //implementation("com.squareup.okhttp3:okhttp:4.9.0")
 
@@ -55,6 +61,9 @@ android {
         versionCode = 1
         versionName = "1.0"
         multiDexEnabled = true
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
    compileOptions {
@@ -67,6 +76,7 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.1.0-rc01"
+        kotlinCompilerVersion = "1.5.10"
     }
 
     buildFeatures {
@@ -77,6 +87,15 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+        }
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+       // useIR( true)
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 

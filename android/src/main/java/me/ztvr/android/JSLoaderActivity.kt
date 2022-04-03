@@ -217,7 +217,7 @@ class JSLoaderActivity : ComponentActivity() {
 
     private fun runJS(): UIElement {
         try {
-            var script = resources.openRawResource(R.raw.global).bufferedReader().use { it.readText() }
+            var script = " ";//resources.openRawResource(R.raw.global).bufferedReader().use { it.readText() }
 
             /*v8.registerJavaMethod(setTimoutCallback, "setTimeout")
             v8.registerJavaMethod(onValueUpdateCallback, "onValueUpdate")*/
